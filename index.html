@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exercicio de pratica</title>
+    <style>
+  body {
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: pink;
+  }
+  main {
+      background-color: white;
+      padding: 10px;
+      border-radius: 10px;
+      box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.288);
+      min-width: 320px;
+      max-width: 800px;
+      margin: auto;
+  }
+  h1 {
+      text-align: center;
+      font-size: 2em;
+      font-weight: bolder;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.315);
+  }
+  .bg-linear:hover {
+     color: rgba(250, 114, 104, 0.534);
+  }
+  .bg-roda {
+      background-color: white;
+      padding: 10px;
+      box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.432);
+      border-radius: 10px;
+      text-align: center;
+      width: 123px;
+      margin: auto;
+      margin-top: 12px;
+    
+  }
+  input.bg1:hover {
+      background-color: rgba(218, 112, 214, 0.404);
+  }
+  input.bg2:hover {
+      background-color: rgba(78, 100, 228, 0.404);
+  }
+  input.bg3:hover {
+      background-color: rgba(238, 227, 77, 0.404);
+  }
+
+  
+    </style>
+</head>
+<body>
+      <main>
+          <h1>Progama calculo de juros</h1>
+          <p>Data limite do pagamento:
+              <input type="date" name="" id="inDate" autofocus class="bg1">
+          </p>
+           <p>Valor:
+               <input type="text" name="" id="inValor" class="bg2"></p>
+          <p>Taxa de juros:
+              <input type="text" name="" id="inJuros" class="bg3">
+               <input type="button" value="Calcular juros" id="btjuro">
+          </p>
+          <h3 id="outres" class="bg-linear"></h3>
+      </main>
+
+
+
+      <footer>
+          <p class="bg-roda">
+              &copy; edoardopaz
+          </p>
+      </footer>
+
+
+      <script>
+          function calcularJuros() {
+              var invalor = document.getElementById('inValor')
+         var Indate = document.getElementById('inDate')
+         var Injuros = document.getElementById('inJuros')
+         var outres  = document.getElementById('outres')
+
+        var valor = Number(invalor.value)
+         var data = Indate.value
+         var juros = Number(Injuros.value / 100 ) 
+
+         if(data == "" || juros == 0) {
+              alert('Porfavor insira os valores corretamente...')
+              inDate.value = ""
+              inDate.focus()
+              return;
+         }
+         
+        
+         var hoje = new Date()
+         var vencimento = new Date()
+
+
+         var diahj = hoje.getDate()
+         var meshj = hoje.getMonth()
+         var anohj = hoje.getFullYear()
+
+         var partes = data.split("-")
+         vencimento.setDate(Number(partes[2]))
+         vencimento.setMonth(Number(partes[1]) - 1)
+         vencimento.setFullYear(Number(partes[0]))
+
+
+
+         var atraso = hoje - vencimento
+        
+         if(atraso > 0) {
+             var dias = Math.round(atraso / 86400000)
+             
+         }
+
+      var Juros = (valor * juros) * partes[2]
+
+      if(partes[2] >= diahj || partes[1] - 1 >= meshj) {
+          outres.textContent = "OBA!! \u{1F609}, Ainda não chegou a data limite para receber juros!! \u{1F389}"
+      } else {
+        outres.textContent = `Vish... Seu juros é de R$: ${Juros.toFixed(2)}`
+        
+      }
+
+     
+
+
+          }
+          var btjuros = document.getElementById('btjuro')
+          btjuros.addEventListener('click', calcularJuros)
+      </script>
+
+
+
+</body>
+</html>
