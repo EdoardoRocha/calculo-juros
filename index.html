@@ -119,7 +119,7 @@
 
       var Juros = (valor * juros) * partes[2]
 
-      if(partes[2] >= diahj || partes[1] - 1 >= meshj) {
+      if(partes[2] >= diahj && partes[1] - 1 >= meshj) {
           outres.textContent = "OBA!! \u{1F609}, Ainda não chegou a data limite para receber juros!! \u{1F389}"
       } else {
         outres.textContent = `Vish... Seu juros é de R$: ${Juros.toFixed(2)}`
