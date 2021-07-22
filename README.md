@@ -2,6 +2,9 @@
  
  
  
+ <p align="center"> 
+ <img width="460" height="300" src="src/assets/ezgif.com-gif-maker.gif">
+ </p>
  
  
  > status: Developing ⚠️
