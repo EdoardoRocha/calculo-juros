@@ -21,7 +21,7 @@
 
 ## What does this algorithm consist of?
 
-
+Basically this algorithm consists of taking a date, an amount and an interest rate. It ends the algorithm by calculating and handing you the interest to be supposedly "Paid"
 
 ## Technologies used
 
