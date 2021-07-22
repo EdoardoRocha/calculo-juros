@@ -1,4 +1,4 @@
-<h1 align="center"> interest-calculation </h1>
+<h1 align="center"> Interest-calculation </h1>
  
  
  
